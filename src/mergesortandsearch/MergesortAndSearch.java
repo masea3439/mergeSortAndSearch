@@ -173,16 +173,15 @@ public class MergesortAndSearch {
             }
         }
         if (doesItExist == true) {
-            for (int i = 0; i < middle; i++) {
-                tempL[i] = list[i];
-            }
-            for (int i = middle; i < list.length; i++) {
-                tempR[i - middle] = list[i];
-            }
-
             if (list[middle] > numWanted) {
+                for (int i = 0; i < middle; i++) {
+                    tempL[i] = list[i];
+                }
                 index = search(tempL, numWanted);
             } else if (list[middle] < numWanted) {
+                for (int i = middle; i < list.length; i++) {
+                    tempR[i - middle] = list[i];
+                }
                 index = search(tempR, numWanted) + list.length / 2;
             } else if (list[middle] == numWanted) {
                 index = middle;
